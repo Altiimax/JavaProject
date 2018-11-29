@@ -20,7 +20,7 @@ public class CaseTrouNoir implements Case{
 	@Override
 	public boolean peuxPartir() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class CaseTrouNoir implements Case{
 	@Override
 	public int mouvements(int lancerDé) {
 		// TODO Auto-generated method stub
-		System.out.println("Le joueur " + this.getJoueur() + "a atteint une case trou noir !");
+		System.out.println("Le joueur " + this.getJoueur() + " a atteint une case trou noir !");
 		return this.index;
 	}
 
@@ -50,8 +50,9 @@ public class CaseTrouNoir implements Case{
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
-			System.out.println("Le joueur "+joueur.toString() + "vient d'arriver dans cette case et éjecte donc le joueur "
-			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+			System.out.println("Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
+			+aRemplacer.toString() +
+			" à la case : " + aEnvoyer.getIndex());
 		}
 	}
 
