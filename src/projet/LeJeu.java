@@ -17,28 +17,28 @@ public class LeJeu {
 		this.partieTerminee = false;
 	}
 	
-	/**
+	/*
 	 * @return true if the game is finished
 	 */
 	public boolean getPartieTerminee() {
 		return this.partieTerminee;
 	}
 	
-	/** Sets a game to finished or not
+	/* Sets a game to finished or not
 	 * @param k is the status to set
 	 */
 	public void setPartieTerminee(boolean k) {
 		this.partieTerminee = k;
 	}
 	
-	/** Get the current board
+	/* Get the current board
 	 * @return the board
 	 */
 	public Plateau getPlateau() {
 		return this.plateau;
 	}
 	
-	/** Add a player in the game and assigns him to the first cell
+	/*Add a player in the game and assigns him to the first cell
 	 * @param p is the new player to add
 	 */
 	public void addJoueur(Joueur p) {
@@ -46,7 +46,7 @@ public class LeJeu {
 		this.getPlateau().getCases()[0].setJoueur(p);
 	}
 	
-	public void playOneTime(){
+	public void jeuUn(){
 		
 		int boardSize = this.getPlateau().getNbDeCases() - 1;
 		
@@ -100,11 +100,11 @@ public class LeJeu {
 	}
 	
 	
-	public void playManyTimes(int Nmax) {
+	public void plusieursJeu(int max) {
 		int i = 0;
-		while (i < Nmax & !this.getPartieTerminee()) {
+		while (i < max & !this.getPartieTerminee()) {
 			System.out.println("Round " +i);
-			this.playOneTime();
+			this.jeuUn();
 			i++;
 		}
 	}

@@ -1,7 +1,9 @@
 package projet;
-
+/**
+ * this class store all the special power of the cells
+ */
 public class PlateauBasique extends Plateau {
-	/**
+	/*
 	 * Creates a board with 64 cells.
 	 */
 	public PlateauBasique() {

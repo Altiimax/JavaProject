@@ -30,7 +30,6 @@ public abstract class Plateau {
 	//function that builds the board
 	public abstract void initPlateau();
 	
-	/** gets the cells of the built board */
 	public Case[] getCases() {
 		return this.cases;
 	}

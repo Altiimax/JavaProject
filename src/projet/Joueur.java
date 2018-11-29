@@ -2,16 +2,16 @@ package projet;
 
 import projet.Case;
 /**
- * @author celia
+ * @author celia, kevin, arnaud
  * groupe 15, 2TL2
  *
  */
 public class Joueur {
-    /**
+    /*
      * the place where the player stands on the tray
      */
     protected Case caseActuelle;
-    /**
+    /*
      * the name of the player
      */
     protected String pseudo;
@@ -24,7 +24,7 @@ public class Joueur {
 		this.pseudo = pseudo;
 	}
 
-	/**
+	/*
      * This constructor allows the user to create a player knowing a number that will 
      * describe his pawn
      * @param nbr number representing the player
@@ -34,7 +34,7 @@ public class Joueur {
         this.caseActuelle = nbr;
     }
 
-    /**
+    /*
      * This constructor allows the user to create a player knowing his name, forename, pseudo 
      * and a number which will stand for the pawn
      * @param nom name of the player
@@ -45,7 +45,7 @@ public class Joueur {
         this.pseudo = pseudo;
         this.caseActuelle = nbr;
     }
-    /**  A player with no current cell (== null)
+    /*  A player with no current cell (== null)
      * @param name the name of this player
      * 
     */
@@ -66,7 +66,7 @@ public class Joueur {
         return (pseudo);
     }
 
-    /**result of rolling two dices
+    /*result of rolling two dices
       * @return random result of a 2 dices throw
     */
 
