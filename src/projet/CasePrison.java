@@ -43,7 +43,7 @@ public class CasePrison implements Case {
 
 	@Override
 	public int mouvements(int lancerDé) {
-		System.out.println("Le joueur " + this.getJoueur() + "a atteint une case prison !");
+		System.out.println("Le joueur " + this.getJoueur() + " a atteint une case prison !");
 		return this.index;
 	}
 
@@ -59,7 +59,7 @@ public class CasePrison implements Case {
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
-			System.out.println("Le joueur "+joueur.toString() + "vient d'arriver dans cette case et éjecte donc le joueur "
+			System.out.println("Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
 			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
 		}
 	}
