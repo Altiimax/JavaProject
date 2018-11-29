@@ -30,7 +30,7 @@ public interface Case {
 	 /** 
      * @param joueur is the player who just reached this cell
      */
-	public void welcomeJoueur(Joueur joueur);
+	public void remplaceJoueur(Joueur joueur);
 
 	/** gets the name of the player in the cell, returns none if null*/
 	public Joueur getJoueur();
@@ -38,8 +38,9 @@ public interface Case {
 	/** sets the player in the cell
 	 * @param joueur is the player to set
 	 */
-	public void setPlayer(Joueur joueur);
+	public void setJoueur(Joueur joueur);
 	
 	/** function that dictates what happens on special cases (trap, enigma, etc)*/
 	public void passeUnTour();
+
 }

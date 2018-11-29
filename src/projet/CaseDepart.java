@@ -50,7 +50,7 @@ public class CaseDepart implements Case {
 	/**
 	 * Method not implemented since everyone is starting on this case at the start of a game
 	 */
-	public void welcomeJoueur(Joueur joueur) {
+	public void remplaceJoueur(Joueur joueur) {
 		
 	}
 	/**
@@ -69,7 +69,7 @@ public class CaseDepart implements Case {
 	}
 
 	@Override
-	public void setPlayer(Joueur joueur) {
+	public void setJoueur(Joueur joueur) {
 		if(!this.getJoueurs().contains(joueur)) {
 			this.getJoueurs().add(joueur);
 			joueur.setCaseActuelle(this);

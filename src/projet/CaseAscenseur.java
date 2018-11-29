@@ -31,7 +31,7 @@ public class CaseAscenseur implements Case {
 	}
 
 	@Override
-	public void welcomeJoueur(Joueur joueur) {
+	public void remplaceJoueur(Joueur joueur) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -43,7 +43,7 @@ public class CaseAscenseur implements Case {
 	}
 
 	@Override
-	public void setPlayer(Joueur joueur) {
+	public void setJoueur(Joueur joueur) {
 		// TODO Auto-generated method stub
 		
 	}

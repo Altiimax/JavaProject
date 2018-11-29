@@ -1,57 +1,70 @@
 package projet;
 
 public class CaseOie implements Case {
+	
+	protected int index;
+	protected Joueur joueur;
 
 	public CaseOie(int i) {
-		// TODO Auto-generated constructor stub
+		this.index = i;
+		this.joueur = null;
+	}
+	
+	public CaseOie(int i, Joueur bob) {
+		this.index = i;
+		this.joueur = bob;
 	}
 
 	@Override
+	/**
+	 * @return true because it is a goose cell and thus, player entering this cell leave it immediately. 
+	 */
 	public boolean peuxPartir() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public int getIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.index;
 	}
 
 	@Override
 	public int mouvements(int lancerDé) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("La case " + this.getIndex() + " est une case Oie !");
+		int prochaineCase = this.getIndex() + lancerDé;
+		System.out.println("Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDé + "cases !");
+		return prochaineCase;
 	}
 
 	@Override
 	public boolean caseOccupee() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.getJoueur() != null;
 	}
 
 	@Override
-	public void welcomeJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
-
+	public void remplaceJoueur(Joueur joueur) {
+		if (this.getJoueur() != null) {
+			System.out.println("Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
+			Joueur aRemplacer = this.getJoueur();
+			Case aEnvoyer = joueur.getCaseActuelle();
+			aRemplacer.setCaseActuelle(aEnvoyer);
+			System.out.println("Le joueur "+joueur.toString() + "vient d'arriver dans cette case et éjecte donc le joueur "
+			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+		}
 	}
 
 	@Override
 	public Joueur getJoueur() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.joueur;
 	}
 
 	@Override
-	public void setPlayer(Joueur joueur) {
-		// TODO Auto-generated method stub
-
+	public void setJoueur(Joueur joueur) {
+		this.joueur = joueur;
 	}
 
 	@Override
 	public void passeUnTour() {
-		// TODO Auto-generated method stub
-
 	}
 
 }
