@@ -13,16 +13,16 @@ public class Main {
         aGame.getPlateau().initPlateau();
 
         // Define the player /
-        Joueur firstPlayer = new Joueur("Zidane");
-        Joueur secondPlayer = new Joueur("Ronaldo");
-        Joueur thirdPlayer = new Joueur("Beckam");
+        Joueur firstPlayer = new Joueur("Luc");
+        Joueur secondPlayer = new Joueur("toto");
+        Joueur thirdPlayer = new Joueur("arnaud");
 
         aGame.addJoueur(firstPlayer);
         aGame.addJoueur(secondPlayer);
         aGame.addJoueur(thirdPlayer);
 
         // Play 20 rounds 
-        aGame.playManyTimes(20);
+        aGame.plusieursJeu(20);
 
     }
 
