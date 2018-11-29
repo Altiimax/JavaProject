@@ -31,38 +31,41 @@ public class CaseAscenseur implements Case {
 
 	@Override
 	public int mouvements(int lancerDé) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("Le joueur " + this.getJoueur() + " est entré dans un ascenseur !");
+		System.out.println("L'ascenseur l'a emmené jusqu'à la case " + this.indexDeux);
+		joueur.setCaseActuelle(indexDeux);
+		return indexDeux;
 	}
 
 	@Override
 	public boolean caseOccupee() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.getJoueur() != null;
 	}
 
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
-		
+		if (this.getJoueur() != null) {
+			System.out.println("Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
+			Joueur aRemplacer = this.getJoueur();
+			Case aEnvoyer = joueur.getCaseActuelle();
+			aRemplacer.setCaseActuelle(aEnvoyer);
+			System.out.println("Le joueur "+joueur.toString() + "vient d'arriver dans cette case et éjecte donc le joueur "
+			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+		}
 	}
 
 	@Override
 	public Joueur getJoueur() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.joueur;
 	}
 
 	@Override
 	public void setJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
-		
+		this.joueur = joueur;
 	}
 
 	@Override
 	public void passeUnTour() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
