@@ -30,7 +30,7 @@ public interface Case {
 	 /** 
      * @param joueur is the player who just reached this cell
      */
-	public void welcomePlayer(Joueur joueur);
+	public void welcomeJoueur(Joueur joueur);
 
 	/** gets the name of the player in the cell, returns none if null*/
 	public Joueur getJoueur();
