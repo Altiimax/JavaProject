@@ -6,7 +6,7 @@ public class Main {
     {
 
         // Create the board we are going to play in /
-        Plateau origiBoard = new Plateau();
+        Plateau origiBoard = new PlateauBasique();
 
         // Initiate a game with the board /
         LeJeu aGame = new LeJeu (origiBoard);
@@ -22,7 +22,7 @@ public class Main {
         aGame.addJoueur(thirdPlayer);
 
         // Play 20 rounds 
-        //aGame.playManyTimes(20);
+        aGame.playManyTimes(20);
 
     }
 
