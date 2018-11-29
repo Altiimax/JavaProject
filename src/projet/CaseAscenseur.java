@@ -2,20 +2,17 @@ package projet;
 
 public class CaseAscenseur implements Case {
 	
-	protected int indexUn;
-	protected int indexDeux;
+	protected int index;
 	protected Joueur joueur;
 	
 
-	public CaseAscenseur(int i, int j) {
-		this.indexUn = i;
-		this.indexDeux = j;
+	public CaseAscenseur(int i) {
+		this.index = i;
 		this.joueur = null;
 	}
 	
-	public CaseAscenseur(int i, int j, Joueur joueur) {
-		this.indexUn = i;
-		this.indexDeux = j;
+	public CaseAscenseur(int i, Joueur joueur) {
+		this.index = i;
 		this.joueur = joueur;
 	}
 
@@ -26,14 +23,18 @@ public class CaseAscenseur implements Case {
 
 	@Override
 	public int getIndex() {
-		return this.indexUn;
+		return this.index;
 	}
 
 	@Override
 	public int mouvements(int lancerDé) {
+		int indexDeux = 0;
 		System.out.println("Le joueur " + this.getJoueur() + " est entré dans un ascenseur !");
-		System.out.println("L'ascenseur l'a emmené jusqu'à la case " + this.indexDeux);
-		joueur.setCaseActuelle(indexDeux);
+		if(this.getIndex() == 8) { indexDeux = 16;}
+		if(this.getIndex() == 16) { indexDeux = 8;}
+		if(this.getIndex() == 45) { indexDeux = 62;}
+		if(this.getIndex() == 62) { indexDeux = 45;}
+		System.out.println("L'ascenseur l'a emmené jusqu'à la case " + indexDeux);
 		return indexDeux;
 	}
 
