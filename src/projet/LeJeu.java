@@ -80,7 +80,7 @@ public class LeJeu {
 				
 				Case destinationCell = this.getPlateau().getCase(indexDestFinale);
 								
-				destinationCell.welcomePlayer(p);
+				destinationCell.remplaceJoueur(p);
 				p.setCaseActuelle(destinationCell);
 				this.getPlateau().getCase(indexDestFinale).setJoueur(p);
 				

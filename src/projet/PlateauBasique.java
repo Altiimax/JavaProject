@@ -18,9 +18,9 @@ public class PlateauBasique extends Plateau {
 		
 		casesJeu[8] = new CaseAscenseur(8, 16);
 		casesJeu[16] = new CaseAscenseur(16, 8);
-		casesJeu[21] = new CasePrison(21);
+		casesJeu[21] = new CasePrison(21, 3);
 		casesJeu[32] = new CaseTrouNoir(32);
-		casesJeu[38] = new CasePrison(38);
+		casesJeu[38] = new CasePrison(38, 3);
 		casesJeu[45] = new CaseAscenseur(45, 62);
 		casesJeu[62] = new CaseAscenseur(62, 45);
 		
