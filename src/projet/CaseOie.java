@@ -30,10 +30,14 @@ public class CaseOie implements Case {
 
 	@Override
 	public int mouvements(int lancerDé) {
-		System.out.println("La case " + this.getIndex() + " est une case Oie !");
-		int prochaineCase = this.getIndex() + lancerDé;
-		System.out.println("Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDé + "cases !");
-		return prochaineCase;
+		if (this.joueur != null) {
+			System.out.println("La case " + this.getIndex() + " est une case Oie !");
+			int prochaineCase = this.getIndex() + lancerDé;
+			System.out.println("Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDé + "cases !");
+			return prochaineCase;
+		} else {
+			return 0;
+		}
 	}
 
 	@Override
