@@ -63,7 +63,7 @@ public class Joueur {
     }
 
     public String toString() {
-        return (super.toString());
+        return (pseudo);
     }
 
     /**result of rolling two dices
