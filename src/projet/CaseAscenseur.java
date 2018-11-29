@@ -1,21 +1,32 @@
 package projet;
 
 public class CaseAscenseur implements Case {
+	
+	protected int indexUn;
+	protected int indexDeux;
+	protected Joueur joueur;
+	
 
 	public CaseAscenseur(int i, int j) {
-		// TODO Auto-generated constructor stub
+		this.indexUn = i;
+		this.indexDeux = j;
+		this.joueur = null;
+	}
+	
+	public CaseAscenseur(int i, int j, Joueur joueur) {
+		this.indexUn = i;
+		this.indexDeux = j;
+		this.joueur = joueur;
 	}
 
 	@Override
 	public boolean peuxPartir() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public int getIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.indexUn;
 	}
 
 	@Override
