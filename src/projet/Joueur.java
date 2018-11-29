@@ -10,20 +10,28 @@ public class Joueur {
     /**
      * the place where the player stands on the tray
      */
-    protected Case pion;
+    protected Case caseActuelle;
     /**
      * the name of the player
      */
     protected String pseudo;
 
-    /**
+    public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
+	/**
      * This constructor allows the user to create a player knowing a number that will 
      * describe his pawn
      * @param nbr number representing the player
      */
     public Joueur (Case nbr) {
         super();
-        this.pion = nbr;
+        this.caseActuelle = nbr;
     }
 
     /**
@@ -35,7 +43,7 @@ public class Joueur {
      */
     public Joueur (String pseudo, Case nbr) {
         this.pseudo = pseudo;
-        this.pion = nbr;
+        this.caseActuelle = nbr;
     }
     /**  A player with no current cell (== null)
      * @param name the name of this player
@@ -43,15 +51,15 @@ public class Joueur {
     */
     public Joueur (String pseudo){
         this.pseudo = pseudo;
-        this.pion = null;
+        this.caseActuelle = null;
     }
 
-    public Case getPion() {
-        return pion;
+    public Case getCaseActuelle() {
+        return caseActuelle;
     }
 
-    public void setPion(Case pion) {
-        this.pion = pion;
+    public void setCaseActuelle(Case caseActuelle) {
+        this.caseActuelle = caseActuelle;
     }
 
     public String toString() {

@@ -1,56 +1,86 @@
 package projet;
 
+import java.util.*;
+
 public class CaseDepart implements Case {
 
+	protected int index;
+	protected List<Joueur> lesJoueurs;
+	
 	public CaseDepart(int i) {
-		
+		this.index = i;
+		this.lesJoueurs = new ArrayList<Joueur>();
+	}
+	
+	public CaseDepart(int i, List<Joueur> joueurs) {
+		this.index = i;
+		this.lesJoueurs = joueurs;
 	}
 
 	@Override
+	/**
+	 * @return true because it is the beginning cell.
+	 */
 	public boolean peuxPartir() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public int getIndex() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.index;
 	}
 
 	@Override
+	/**
+	 * @return 0 since this is the starting cell so nobody threw the dice yet
+	 */
 	public int mouvements(int lancerDé) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
+	/**
+	 * @return true if a player is in the cell currently
+	 */
 	public boolean caseOccupee() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.lesJoueurs != null;
 	}
 
 	@Override
+	/**
+	 * Method not implemented since everyone is starting on this case at the start of a game
+	 */
 	public void welcomeJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * 
+	 * @return the players currently sitting in this cell, 
+	 * @return null if none
+	 */
+	public List<Joueur> getJoueurs() {
+		return this.lesJoueurs;
+	}
+	
 	@Override
 	public Joueur getJoueur() {
-		// TODO Auto-generated method stub
-		return null;
+		if(this.getJoueurs().size() == 0) return null;
+		return this.getJoueurs().get(0);
 	}
 
 	@Override
 	public void setPlayer(Joueur joueur) {
-		// TODO Auto-generated method stub
-		
+		if(!this.getJoueurs().contains(joueur)) {
+			this.getJoueurs().add(joueur);
+			joueur.setCaseActuelle(this);
+		}
 	}
 
 	@Override
+	/**
+	 * this method has no effect on the starting cell
+	 */
 	public void passeUnTour() {
-		// TODO Auto-generated method stub
 		
 	}
 
