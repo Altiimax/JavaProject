@@ -9,7 +9,7 @@ import projet.Case;
 
 /**
  * Class representing the board of the game.
- * This coard contains all the cells of the goose game.
+ * This board contains all the cells of the goose game.
  */
 
 public abstract class Plateau {
