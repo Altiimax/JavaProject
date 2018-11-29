@@ -28,7 +28,7 @@ public abstract class Plateau {
 	}
 	
 	/** function taht buils the board*/
-	public abstract void initTableau();
+	public abstract void initPlateau();
 	
 	/** gets the cells of the built board */
 	public Case[] getCases() {
