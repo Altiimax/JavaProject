@@ -1,10 +1,15 @@
 package projet;
 
 import java.util.*;
-
+/**
+ * this class gives the starting cell to the players
+ * @author celia, kevin arnaud
+ *
+ */
 public class CaseDepart implements Case {
-
+	// current place of the player
 	protected int index;
+	//list of players
 	protected List<Joueur> lesJoueurs;
 	
 	public CaseDepart(int i) {
@@ -18,7 +23,7 @@ public class CaseDepart implements Case {
 	}
 
 	@Override
-	/**
+	/*
 	 * @return true because it is the beginning cell.
 	 */
 	public boolean peuxPartir() {
@@ -31,7 +36,7 @@ public class CaseDepart implements Case {
 	}
 
 	@Override
-	/**
+	/*
 	 * @return 0 since this is the starting cell so nobody threw the dice yet
 	 */
 	public int mouvements(int lancerDé) {
@@ -39,7 +44,7 @@ public class CaseDepart implements Case {
 	}
 
 	@Override
-	/**
+	/*
 	 * @return true if a player is in the cell currently
 	 */
 	public boolean caseOccupee() {
@@ -47,13 +52,13 @@ public class CaseDepart implements Case {
 	}
 
 	@Override
-	/**
+	/*
 	 * Method not implemented since everyone is starting on this case at the start of a game
 	 */
 	public void remplaceJoueur(Joueur joueur) {
 		
 	}
-	/**
+	/*
 	 * 
 	 * @return the players currently sitting in this cell, 
 	 * @return null if none
