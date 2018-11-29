@@ -16,13 +16,13 @@ public class PlateauBasique extends Plateau {
 			casesJeu [i] = new CasesNormales(i);
 		}
 		
-		casesJeu[8] = new CaseAscenseur(8, 16);
-		casesJeu[16] = new CaseAscenseur(16, 8);
+		casesJeu[8] = new CaseAscenseur(8);
+		casesJeu[16] = new CaseAscenseur(16);
 		casesJeu[21] = new CasePrison(21, 3);
 		casesJeu[32] = new CaseTrouNoir(32);
 		casesJeu[38] = new CasePrison(38, 3);
-		casesJeu[45] = new CaseAscenseur(45, 62);
-		casesJeu[62] = new CaseAscenseur(62, 45);
+		casesJeu[45] = new CaseAscenseur(45);
+		casesJeu[62] = new CaseAscenseur(62);
 		
 		int[] casesOies = {7, 17, 23, 28, 41, 50, 59};
 		
