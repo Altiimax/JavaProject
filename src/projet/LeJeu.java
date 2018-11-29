@@ -57,7 +57,7 @@ public class LeJeu {
 			/*We check if the player can leave the cell */
 			if (p.getCaseActuelle().peuxPartir()) {
 				
-				int result = p.lanceDé();
+				int result = p.lanceDe();
 				
 				/* Compute the new index of the player */
 				int indexActuel = p.getCaseActuelle().getIndex();
@@ -75,7 +75,7 @@ public class LeJeu {
 				}
 				
 				/* gives the status of the player */
-				System.out.print(p.toString() + " est à la case " +indexActuel +".");
+				System.out.print("* "+p.toString() + " est Ã  la case " +indexActuel +".");
 				System.out.println(" il jette " +result + " et atteint " +indexInter +".");
 				
 				Case destinationCell = this.getPlateau().getCase(indexDestFinale);
@@ -86,8 +86,8 @@ public class LeJeu {
 				
 				/* Check if there is a winner */
 				if (indexDestFinale == boardSize) {
-					System.out.println(p.toString() + " est à la case " +indexDestFinale
-							+". c'est la dernière case du plateau, " + p.toString()+ " a gagné!");
+					System.out.println("* "+p.toString() + " est Ã  la case " +indexDestFinale
+							+". c'est la derniÃ¨re case du plateau, " + p.toString()+ " a gagnÃ©!");
 					this.setPartieTerminee(true);
 					break oneRound;
 				}
@@ -103,7 +103,7 @@ public class LeJeu {
 	public void plusieursJeu(int max) {
 		int i = 0;
 		while (i < max & !this.getPartieTerminee()) {
-			System.out.println("Round " +i);
+			System.out.println("\n<-- Round " +i+" -->\n");
 			this.jeuUn();
 			i++;
 		}

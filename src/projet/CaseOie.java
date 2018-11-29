@@ -29,11 +29,11 @@ public class CaseOie implements Case {
 	}
 
 	@Override
-	public int mouvements(int lancerDé) {
+	public int mouvements(int lancerDe) {
 		if (this.joueur != null) {
-			System.out.println("La case " + this.getIndex() + " est une case Oie !");
-			int prochaineCase = this.getIndex() + lancerDé;
-			System.out.println("Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDé + "cases !");
+			System.out.println("* La case " + this.getIndex() + " est une case Oie !");
+			int prochaineCase = this.getIndex() + lancerDe;
+			System.out.println("* Etant donnÃ© que le joueur " + this.getJoueur() + " est arrivÃ© sur une case oie, il avance encore de " + lancerDe + "cases !");
 			return prochaineCase;
 		} else {
 			return 0;
@@ -48,12 +48,12 @@ public class CaseOie implements Case {
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
 		if (this.getJoueur() != null) {
-			System.out.println("Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
+			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
-			System.out.println("Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
-			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et Ã©jecte donc le joueur "
+			+aRemplacer.toString() + " Ã  la case : " + aEnvoyer.getIndex());
 		}
 	}
 

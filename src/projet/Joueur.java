@@ -70,7 +70,7 @@ public class Joueur {
       * @return random result of a 2 dices throw
     */
 
-    public int lanceDé() {
+    public int lanceDe() {
         int result = (((int) (Math.random()*(6 - 1))) + 1) + (((int) (Math.random()*(6 - 1))) + 1);
         return result;
     }

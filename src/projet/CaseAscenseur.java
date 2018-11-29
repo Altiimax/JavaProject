@@ -34,15 +34,15 @@ public class CaseAscenseur implements Case {
 	}
 
 	@Override
-	public int mouvements(int lancerDé) {
+	public int mouvements(int lancerDe) {
 		if(this.joueur != null) {
 			int indexDeux = 0;
-			System.out.println("Le joueur " + this.getJoueur() + " est entré dans un ascenseur !");
+			System.out.println("* Le joueur " + this.getJoueur() + " est entrÃ© dans un ascenseur !");
 			if(this.getIndex() == 8) { indexDeux = 16;}
 			if(this.getIndex() == 16) { indexDeux = 8;}
 			if(this.getIndex() == 45) { indexDeux = 62;}
 			if(this.getIndex() == 62) { indexDeux = 45;}
-			System.out.println("L'ascenseur l'a emmené jusqu'à la case " + indexDeux);
+			System.out.println("* L'ascenseur l'a emmenÃ© jusqu'Ã  la case " + indexDeux);
 			return indexDeux;
 		} else {
 			return 0;
@@ -57,12 +57,12 @@ public class CaseAscenseur implements Case {
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
 		if (this.getJoueur() != null) {
-			System.out.println("Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
+			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
-			System.out.println("Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
-			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et Ã©jecte donc le joueur "
+			+aRemplacer.toString() + " Ã  la case : " + aEnvoyer.getIndex());
 		}
 	}
 

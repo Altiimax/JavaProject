@@ -42,8 +42,8 @@ public class CasePrison implements Case {
 	}
 
 	@Override
-	public int mouvements(int lancerDé) {
-		System.out.println("Le joueur " + this.getJoueur() + " a atteint une case prison !");
+	public int mouvements(int lancerDe) {
+		System.out.println("* Le joueur " + this.getJoueur() + " a atteint une case prison !");
 		return this.index;
 	}
 
@@ -55,12 +55,12 @@ public class CasePrison implements Case {
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
 		if (this.getJoueur() != null) {
-			System.out.println("Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
+			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
-			System.out.println("Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
-			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et Ã©jecte donc le joueur "
+			+aRemplacer.toString() + " Ã  la case : " + aEnvoyer.getIndex());
 		}
 	}
 	
@@ -79,8 +79,8 @@ public class CasePrison implements Case {
 	 * Method used to deplement the number of turns the player has to wait while in this case
 	 */
 	public void passeUnTour() {
-		System.out.println("Le joueur " + this.getJoueur() + " doit encore attendre : "+ this.getNbToursEnPrison() + 
-		" tours avant de pourvoir relancer le dé");
+		System.out.println("* Le joueur " + this.getJoueur() + " doit encore attendre : "+ this.getNbToursEnPrison() + 
+		" tours avant de pourvoir relancer le dÃ©");
 		this.setNbToursEnPrison(this.getNbToursEnPrison() - 1);
 	}
 

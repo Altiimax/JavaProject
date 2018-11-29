@@ -19,10 +19,10 @@ public interface Case {
 	  /*
      * returns the index of the cell reached by a player with the number he got on the dice that led him to this case
      * so we can further use this amount of the dice to move him or do a specific action on this player based on the dice roll
-     * @param lancerDé the result of the dice throw
+     * @param lancerDï¿½ the result of the dice throw
      * @return the index of the cell where the player should arrive after throwing the dice
      */
-	public int mouvements(int lancerDé);
+	public int mouvements(int lancerDe);
 
 	/* @return true if the case is busy*/
 	public boolean caseOccupee();

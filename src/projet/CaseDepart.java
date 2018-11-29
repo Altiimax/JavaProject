@@ -39,7 +39,7 @@ public class CaseDepart implements Case {
 	/*
 	 * @return 0 since this is the starting cell so nobody threw the dice yet
 	 */
-	public int mouvements(int lancerDé) {
+	public int mouvements(int lancerDe) {
 		return 0;
 	}
 
