@@ -43,6 +43,7 @@ public class CasesNormales implements Case {
 
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
+		/**
 		if (this.getJoueur() != null) {
 			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
@@ -51,7 +52,9 @@ public class CasesNormales implements Case {
 			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
 			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
 		}
+		*/
 	}
+	
 
 	@Override
 	public Joueur getJoueur() {

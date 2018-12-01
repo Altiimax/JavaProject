@@ -61,28 +61,30 @@ public class LeJeu {
 				
 				/* Compute the new index of the player */
 				int indexActuel = p.getCaseActuelle().getIndex();
-				int indexDestHypo = indexActuel + result;
-				int indexInter;
+				int indexInter = indexActuel + result;
 				int indexDestFinale;
 				
 				/* If the player is not out of the board */
-				if (indexDestHypo < boardSize + 1) {
-					indexInter = indexDestHypo;
+				if (indexInter < boardSize + 1) {
+					//indexInter = indexDestHypo;
+					/*Puts the player in the cell and calls the function in case of a special cell*/
+					
+					Case interCell = this.getPlateau().getCase(indexInter);
+					
+					interCell.remplaceJoueur(p);
+					p.setCaseActuelle(interCell);
+					this.getPlateau().getCase(indexInter).setJoueur(p);
 					indexDestFinale = this.getPlateau().getCase(indexInter).mouvements(result);
+					//System.out.println("Whatever that does");
 				} else {
 					indexInter = boardSize - (result - (boardSize - indexActuel));
 					indexDestFinale = indexInter;
 				}
-				
-				/* gives the status of the player */
 				System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
 				System.out.println(" il jette " +result + " et atteint " +indexInter +".");
 				
-				Case destinationCell = this.getPlateau().getCase(indexDestFinale);
-								
-				destinationCell.remplaceJoueur(p);
-				p.setCaseActuelle(destinationCell);
-				this.getPlateau().getCase(indexDestFinale).setJoueur(p);
+				/* gives the status of the player */
+				//System.out.println("Status of player");
 				
 				/* Check if there is a winner */
 				if (indexDestFinale == boardSize) {

@@ -4,7 +4,7 @@ public class CasePrison implements Case {
 	
 	protected int index;
 	protected Joueur joueur;
-	protected int nbToursEnPrison;
+	protected int nbToursEnPrison = 3;
 
 	public int getNbToursEnPrison() {
 		return nbToursEnPrison;
@@ -13,18 +13,19 @@ public class CasePrison implements Case {
 	public void setNbToursEnPrison(int nbToursEnPrison) {
 		this.nbToursEnPrison = nbToursEnPrison;
 	}
-
-	public CasePrison(int i, Joueur joueur) {
+	
+	public CasePrison(int i) {
 		this.index = i;
-		this.joueur = joueur;
 		this.nbToursEnPrison = 3;
 	}
-	
+
+	/**
 	public CasePrison(int i, int nbreTours) {
 		this.index = i;
 		this.joueur = null;
 		this.nbToursEnPrison = nbreTours;
 	}
+	*/
 
 	@Override
 	public boolean peuxPartir() {
@@ -54,7 +55,8 @@ public class CasePrison implements Case {
 
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
-		if (this.getJoueur() != null) {
+		
+	if (this.getJoueur() != null) {
 			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
