@@ -70,11 +70,19 @@ public class LeJeu {
 					/*Puts the player in the cell and calls the function in case of a special cell*/
 					
 					Case interCell = this.getPlateau().getCase(indexInter);
-					
-					interCell.remplaceJoueur(p);
-					p.setCaseActuelle(interCell);
+					if (interCell.getJoueur() != null) {
+						interCell.remplaceJoueur(p);
+					} else {
+						p.getCaseActuelle().retirerJoueur();
+						p.setCaseActuelle(interCell);
+						this.getPlateau().getCase(indexInter).setJoueur(p);
+					}
+					/*p.setCaseActuelle(interCell);
 					this.getPlateau().getCase(indexInter).setJoueur(p);
-					indexDestFinale = this.getPlateau().getCase(indexInter).mouvements(result);
+					*/
+					
+					indexDestFinale = this.getPlateau().getCase(indexInter).getIndex();
+					
 					//System.out.println("Whatever that does");
 				} else {
 					indexInter = boardSize - (result - (boardSize - indexActuel));
@@ -82,7 +90,8 @@ public class LeJeu {
 				}
 				System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
 				System.out.println(" il jette " +result + " et atteint " +indexInter +".");
-				
+				this.getPlateau().getCase(indexInter).mouvements(result);
+				//this.getPlateau().getCase(indexInter).remplaceJoueur(p);
 				/* gives the status of the player */
 				//System.out.println("Status of player");
 				

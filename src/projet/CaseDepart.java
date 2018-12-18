@@ -88,5 +88,8 @@ public class CaseDepart implements Case {
 	public void passeUnTour() {
 		
 	}
+	
+	public void retirerJoueur() {
+	}
 
 }

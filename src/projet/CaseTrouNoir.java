@@ -71,5 +71,9 @@ public class CaseTrouNoir implements Case{
 	@Override
 	public void passeUnTour() {
 	}
+	
+	public void retirerJoueur() {
+		this.joueur = null;
+	}
 
 }

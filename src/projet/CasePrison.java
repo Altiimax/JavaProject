@@ -56,7 +56,7 @@ public class CasePrison implements Case {
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
 		
-	if (this.getJoueur() != null) {
+		if (this.getJoueur() != null && this.getJoueur().getPseudo() != joueur.getPseudo()) {
 			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
@@ -85,5 +85,8 @@ public class CasePrison implements Case {
 		" tours avant de pourvoir relancer le dé");
 		this.setNbToursEnPrison(this.getNbToursEnPrison() - 1);
 	}
-
+	
+	public void retirerJoueur() {
+		this.joueur = null;
+	}
 }

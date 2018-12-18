@@ -42,5 +42,7 @@ public interface Case {
 	
 	/* function that dictates what happens on special cases (trap, enigma, etc)*/
 	public void passeUnTour();
+	
+	public void retirerJoueur();
 
 }

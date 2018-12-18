@@ -79,5 +79,10 @@ public class CaseAscenseur implements Case {
 	@Override
 	public void passeUnTour() {
 	}
+	
+	public void retirerJoueur() {
+		this.joueur = null;
+	}
+	
 
 }

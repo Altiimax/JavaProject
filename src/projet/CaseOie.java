@@ -71,4 +71,7 @@ public class CaseOie implements Case {
 	public void passeUnTour() {
 	}
 
+	public void retirerJoueur() {
+		this.joueur = null;
+	}
 }
