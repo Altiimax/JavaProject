@@ -70,6 +70,8 @@ public class LeJeu {
 					/*Puts the player in the cell and calls the function in case of a special cell*/
 					
 					Case interCell = this.getPlateau().getCase(indexInter);
+					System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
+					System.out.println(" il jette " +result + " et atteint " +indexInter +".");
 					if (interCell.getJoueur() != null) {
 						interCell.remplaceJoueur(p);
 					} else {
@@ -87,9 +89,10 @@ public class LeJeu {
 				} else {
 					indexInter = boardSize - (result - (boardSize - indexActuel));
 					indexDestFinale = indexInter;
+					System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
+					System.out.println(" il jette " +result + " et atteint " +indexInter +".");
 				}
-				System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
-				System.out.println(" il jette " +result + " et atteint " +indexInter +".");
+				
 				this.getPlateau().getCase(indexInter).mouvements(result);
 				//this.getPlateau().getCase(indexInter).remplaceJoueur(p);
 				/* gives the status of the player */
@@ -113,7 +116,7 @@ public class LeJeu {
 	
 	public void plusieursJeu(int max) {
 		int i = 0;
-		while (i < max & !this.getPartieTerminee()) {
+		while (i < max && !this.getPartieTerminee()) {
 			System.out.println("\n<-- Round " +i+" -->\n");
 			this.jeuUn();
 			i++;

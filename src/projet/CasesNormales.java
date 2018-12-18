@@ -50,6 +50,7 @@ public class CasesNormales implements Case {
 			aRemplacer.setCaseActuelle(aEnvoyer);
 			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
 			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
+			this.setJoueur(joueur);
 		}
 	
 	}
