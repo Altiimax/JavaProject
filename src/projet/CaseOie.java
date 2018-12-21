@@ -33,10 +33,11 @@ public class CaseOie implements Case {
 		if (this.joueur != null) {
 			System.out.println("* La case " + this.getIndex() + " est une case Oie !");
 			int prochaineCase = this.getIndex() + lancerDe;
-			System.out.println("* Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDe + "cases !");
+			System.out.println("* Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDe + " cases !");
 			return prochaineCase;
 		} else {
-			return 0;
+			System.out.println("no player");
+			return this.getIndex();
 		}
 	}
 

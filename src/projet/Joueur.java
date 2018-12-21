@@ -59,6 +59,7 @@ public class Joueur {
     }
 
     public void setCaseActuelle(Case caseActuelle) {
+    	if (this.caseActuelle != null) {this.caseActuelle.retirerJoueur();}
         this.caseActuelle = caseActuelle;
     }
 

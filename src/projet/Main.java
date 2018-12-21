@@ -22,7 +22,7 @@ public class Main {
         aGame.addJoueur(thirdPlayer);
 
         // Play 20 rounds 
-        aGame.plusieursJeu(20);
+        aGame.plusieursJeu(25);
 
     }
 
