@@ -1,5 +1,7 @@
 package modele;
 
+import javax.swing.JOptionPane;
+
 import modele.Case;
 /**
  * @author celia, kevin, arnaud
@@ -53,12 +55,17 @@ public class Joueur {
         this.pseudo = pseudo;
         this.caseActuelle = null;
     }
+    
+    public Joueur () {
+    	this.pseudo = JOptionPane.showInputDialog("Entrez le pseudo du joueur : ");
+    }
 
     public Case getCaseActuelle() {
         return caseActuelle;
     }
 
     public void setCaseActuelle(Case caseActuelle) {
+    	if (this.caseActuelle != null) {this.caseActuelle.retirerJoueur();}
         this.caseActuelle = caseActuelle;
     }
 

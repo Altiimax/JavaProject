@@ -31,9 +31,14 @@ public class CaseTrouNoir implements Case{
 
 	@Override
 	public int mouvements(int lancerDe) {
-		// TODO Auto-generated method stub
-		System.out.println("* Le joueur " + this.getJoueur() + " a atteint une case trou noir !");
-		return this.index;
+		if(this.joueur != null) {
+			System.out.println("* Le joueur " + this.getJoueur() + " est entré dans un trou noir !");
+			this.joueur.getCaseActuelle().retirerJoueur();
+			System.out.println("* Le trou noir a ramené le joueur " + this.getJoueur() + " à la case départ.");
+			return 0;
+		} else {
+			return this.getIndex();
+		}
 	}
 
 	@Override

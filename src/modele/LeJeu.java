@@ -47,7 +47,7 @@ public class LeJeu {
 	}
 	
 	public void jeuUn(){
-		
+		int result = 0;
 		int boardSize = this.getPlateau().getNbDeCases() - 1;
 		
 		/* For each player we are going to throw the dice */
@@ -57,7 +57,7 @@ public class LeJeu {
 			/*We check if the player can leave the cell */
 			if (p.getCaseActuelle().peuxPartir()) {
 				
-				int result = p.lanceDe();
+				result = p.lanceDe();
 				
 				/* Compute the new index of the player */
 				int indexActuel = p.getCaseActuelle().getIndex();
@@ -65,7 +65,7 @@ public class LeJeu {
 				int indexDestFinale;
 				
 				/* If the player is not out of the board */
-				if (indexInter < boardSize + 1) {
+				if (indexInter <= boardSize) {
 					//indexInter = indexDestHypo;
 					/*Puts the player in the cell and calls the function in case of a special cell*/
 					
@@ -89,11 +89,21 @@ public class LeJeu {
 				} else {
 					indexInter = boardSize - (result - (boardSize - indexActuel));
 					indexDestFinale = indexInter;
+					p.setCaseActuelle(this.getPlateau().getCase(indexDestFinale));
+					this.getPlateau().getCase(indexDestFinale).setJoueur(p);
 					System.out.print("* "+p.toString() + " est à la case " +indexActuel +".");
 					System.out.println(" il jette " +result + " et atteint " +indexInter +".");
 				}
 				
-				this.getPlateau().getCase(indexInter).mouvements(result);
+				int whatever = this.getPlateau().getCase(indexInter).mouvements(result);
+				if (whatever > boardSize) {
+					//whatever = boardSize -(result - (boardSize - whatever));
+					int casesEnArriere = whatever % boardSize;
+					whatever = boardSize - casesEnArriere;
+					}
+				Case localCase = this.getPlateau().getCase(whatever);
+				p.setCaseActuelle(localCase);
+				localCase.setJoueur(p);
 				//this.getPlateau().getCase(indexInter).remplaceJoueur(p);
 				/* gives the status of the player */
 				//System.out.println("Status of player");

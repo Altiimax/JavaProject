@@ -20,7 +20,7 @@ public class PlateauBasique extends Plateau {
 		/**
 		 * 
 		 *
-		casesJeu[8] = new CaseAscenseur(8);
+		*/casesJeu[8] = new CaseAscenseur(8);
 		casesJeu[16] = new CaseAscenseur(16);
 		*/
 		casesJeu[21] = new CasePrison(21);
@@ -29,7 +29,7 @@ public class PlateauBasique extends Plateau {
 		*/
 		casesJeu[38] = new CasePrison(38);
 		/**
-		casesJeu[45] = new CaseAscenseur(45);
+		*/casesJeu[45] = new CaseAscenseur(45);
 		casesJeu[62] = new CaseAscenseur(62);
 		
 		int[] casesOies = {7, 17, 23, 28, 41, 50, 59};

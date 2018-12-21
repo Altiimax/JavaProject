@@ -1,5 +1,7 @@
 package modele;
 
+import javax.swing.JOptionPane;
+
 public class Main {
 
     public static void main(String[] args) 
@@ -13,16 +15,15 @@ public class Main {
         aGame.getPlateau().initPlateau();
 
         // Define the player /
-        Joueur firstPlayer = new Joueur("Luc");
-        Joueur secondPlayer = new Joueur("toto");
-        Joueur thirdPlayer = new Joueur("arnaud");
+        int i = Integer.parseInt(JOptionPane.showInputDialog("Entrez le nombre de joueurs : "));
+        for (int j=0; j<i; j++ ) {
+        Joueur firstPlayer = new Joueur();
 
         aGame.addJoueur(firstPlayer);
-        aGame.addJoueur(secondPlayer);
-        aGame.addJoueur(thirdPlayer);
 
+        }
         // Play 20 rounds 
-        aGame.plusieursJeu(20);
+        aGame.plusieursJeu(25);
 
     }
 
