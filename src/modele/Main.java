@@ -1,4 +1,4 @@
-package projet;
+package modele;
 
 public class Main {
 

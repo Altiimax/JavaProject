@@ -1,84 +1,78 @@
-package projet;
+package modele;
 
-public class CaseTrouNoir implements Case{
-	protected int index;
-	protected Joueur joueur; 
-	protected final int CaseEnMoins = 10;
-
-	public CaseTrouNoir(int i, Joueur joueur) {
-		// TODO Auto-generated constructor stub
-		this.index = i;
-		this.joueur = joueur;
-	}
+public class CaseOie implements Case {
 	
-	public CaseTrouNoir(int i) {
-		// TODO Auto-generated constructor stub
+	protected int index;
+	protected Joueur joueur;
+
+	public CaseOie(int i) {
 		this.index = i;
 		this.joueur = null;
 	}
+	
+	public CaseOie(int i, Joueur bob) {
+		this.index = i;
+		this.joueur = bob;
+	}
 
 	@Override
+	/**
+	 * @return true because it is a goose cell and thus, player entering this cell leave it immediately. 
+	 */
 	public boolean peuxPartir() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public int getIndex() {
-		// TODO Auto-generated method stub
-		return index;
+		return this.index;
 	}
 
 	@Override
 	public int mouvements(int lancerDe) {
-		if(this.joueur != null) {
-			System.out.println("* Le joueur " + this.getJoueur() + " est entré dans un trou noir !");
-			this.joueur.getCaseActuelle().retirerJoueur();
-			System.out.println("* Le trou noir a ramené le joueur " + this.getJoueur() + " à la case départ.");
-			return 0;
+		if (this.joueur != null) {
+			System.out.println("* La case " + this.getIndex() + " est une case Oie !");
+			int prochaineCase = this.getIndex() + lancerDe;
+			System.out.println("* Etant donné que le joueur " + this.getJoueur() + " est arrivé sur une case oie, il avance encore de " + lancerDe + " cases !");
+			return prochaineCase;
 		} else {
+			System.out.println("no player");
 			return this.getIndex();
 		}
 	}
 
 	@Override
 	public boolean caseOccupee() {
-		// TODO Auto-generated method stub
 		return this.getJoueur() != null;
 	}
 
 	@Override
 	public void remplaceJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
 		if (this.getJoueur() != null) {
 			System.out.println("* Le joueur " + this.getJoueur().toString() + " est deja dans cette case !");
 			Joueur aRemplacer = this.getJoueur();
 			Case aEnvoyer = joueur.getCaseActuelle();
 			aRemplacer.setCaseActuelle(aEnvoyer);
 			System.out.println("* Le joueur "+joueur.toString() + " vient d'arriver dans cette case et éjecte donc le joueur "
-			+aRemplacer.toString() +
-			" à la case : " + aEnvoyer.getIndex());
+			+aRemplacer.toString() + " à la case : " + aEnvoyer.getIndex());
 		}
 	}
 
 	@Override
 	public Joueur getJoueur() {
-		// TODO Auto-generated method stub
 		return this.joueur;
 	}
 
 	@Override
 	public void setJoueur(Joueur joueur) {
-		// TODO Auto-generated method stub
 		this.joueur = joueur;
 	}
 
 	@Override
 	public void passeUnTour() {
 	}
-	
+
 	public void retirerJoueur() {
 		this.joueur = null;
 	}
-
 }

@@ -1,6 +1,6 @@
-package projet;
+package modele;
 
-import projet.Joueur;
+import modele.Joueur;
 
 /**
  * Interface for the cells of the game.

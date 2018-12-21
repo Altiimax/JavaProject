@@ -1,40 +1,26 @@
-package projet;
+package modele;
 
-public class CasePrison implements Case {
+public class CasesNormales implements Case {
 	
 	protected int index;
 	protected Joueur joueur;
-	protected int nbToursEnPrison = 3;
 
-	public int getNbToursEnPrison() {
-		return nbToursEnPrison;
-	}
-
-	public void setNbToursEnPrison(int nbToursEnPrison) {
-		this.nbToursEnPrison = nbToursEnPrison;
-	}
-	
-	public CasePrison(int i) {
-		this.index = i;
-		this.nbToursEnPrison = 3;
-	}
-
-	/**
-	public CasePrison(int i, int nbreTours) {
+	public CasesNormales(int i) {
 		this.index = i;
 		this.joueur = null;
-		this.nbToursEnPrison = nbreTours;
 	}
-	*/
+	
+	public CasesNormales(int i, Joueur bob) {
+		this.index = i;
+		this.joueur = bob;
+	}
 
 	@Override
+	/**
+	 * @return true because it is a normal cell, therefore, no special treatments for player on this cell
+	 */
 	public boolean peuxPartir() {
-		if(this.getNbToursEnPrison() == 0) {
-			return true;
-		} else {
-			return false;
-		}
-		
+		return true;
 	}
 
 	@Override
@@ -43,8 +29,10 @@ public class CasePrison implements Case {
 	}
 
 	@Override
+	/**
+	 * @return the index since this is a normal cell, we don't need the number of the dice throw for anything.
+	 */
 	public int mouvements(int lancerDe) {
-		System.out.println("* Le joueur " + this.getJoueur() + " a atteint une case prison !");
 		return this.getIndex();
 	}
 
@@ -66,8 +54,10 @@ public class CasePrison implements Case {
 			this.setJoueur(joueur);
 			joueur.setCaseActuelle(remplacer);
 		}
+	
 	}
 	
+
 	@Override
 	public Joueur getJoueur() {
 		return this.joueur;
@@ -80,15 +70,13 @@ public class CasePrison implements Case {
 
 	@Override
 	/**
-	 * Method used to deplement the number of turns the player has to wait while in this case
+	 * this method doesn't trigger itself on a normal cell.
 	 */
 	public void passeUnTour() {
-		System.out.println("* Le joueur " + this.getJoueur() + " doit encore attendre : "+ this.getNbToursEnPrison() + 
-		" tours avant de pourvoir relancer le dé");
-		this.setNbToursEnPrison(this.getNbToursEnPrison() - 1);
 	}
 	
 	public void retirerJoueur() {
 		this.joueur = null;
 	}
+
 }

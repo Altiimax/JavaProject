@@ -1,4 +1,4 @@
-package projet;
+package modele;
 
 import java.util.*;
 /**

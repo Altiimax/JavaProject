@@ -1,27 +1,33 @@
-package projet;
-
-public class CasesNormales implements Case {
-	
+package modele;
+/**
+ * this class makes a player going from a specific cell to another and same in the other way
+ * @author celia, Kevin, Arnaud
+ *
+ */
+public class CaseAscenseur implements Case {
+	// current index of the player
 	protected int index;
+	// the player concerned by this case
 	protected Joueur joueur;
-
-	public CasesNormales(int i) {
+	
+	/*
+	 * constructor of the CaseAscenceur knowing its index / 
+	 */
+	public CaseAscenseur(int i) {
 		this.index = i;
 		this.joueur = null;
 	}
 	
-	public CasesNormales(int i, Joueur bob) {
+	public CaseAscenseur(int i, Joueur joueur) {
 		this.index = i;
-		this.joueur = bob;
+		this.joueur = joueur;
 	}
 
 	@Override
-	/**
-	 * @return true because it is a normal cell, therefore, no special treatments for player on this cell
-	 */
 	public boolean peuxPartir() {
 		return true;
 	}
+	
 
 	@Override
 	public int getIndex() {
@@ -29,11 +35,19 @@ public class CasesNormales implements Case {
 	}
 
 	@Override
-	/**
-	 * @return the index since this is a normal cell, we don't need the number of the dice throw for anything.
-	 */
 	public int mouvements(int lancerDe) {
-		return this.getIndex();
+		if(this.joueur != null) {
+			int indexDeux = 0;
+			System.out.println("* Le joueur " + this.getJoueur() + " est entré dans un ascenseur !");
+			if(this.getIndex() == 8) { indexDeux = 16;}
+			if(this.getIndex() == 16) { indexDeux = 8;}
+			if(this.getIndex() == 45) { indexDeux = 62;}
+			if(this.getIndex() == 62) { indexDeux = 45;}
+			System.out.println("* L'ascenseur l'a emmené jusqu'à la case " + indexDeux);
+			return indexDeux;
+		} else {
+			return this.getIndex();
+		}
 	}
 
 	@Override
@@ -54,9 +68,7 @@ public class CasesNormales implements Case {
 			this.setJoueur(joueur);
 			joueur.setCaseActuelle(remplacer);
 		}
-	
 	}
-	
 
 	@Override
 	public Joueur getJoueur() {
@@ -69,14 +81,12 @@ public class CasesNormales implements Case {
 	}
 
 	@Override
-	/**
-	 * this method doesn't trigger itself on a normal cell.
-	 */
 	public void passeUnTour() {
 	}
 	
 	public void retirerJoueur() {
 		this.joueur = null;
 	}
+	
 
 }

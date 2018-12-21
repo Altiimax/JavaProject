@@ -1,33 +1,41 @@
-package projet;
-/**
- * this class makes a player going from a specific cell to another and same in the other way
- * @author celia, Kevin, Arnaud
- *
- */
-public class CaseAscenseur implements Case {
-	// current index of the player
-	protected int index;
-	// the player concerned by this case
-	protected Joueur joueur;
+package modele;
+
+public class CasePrison implements Case {
 	
-	/*
-	 * constructor of the CaseAscenceur knowing its index / 
-	 */
-	public CaseAscenseur(int i) {
+	protected int index;
+	protected Joueur joueur;
+	protected int nbToursEnPrison = 3;
+
+	public int getNbToursEnPrison() {
+		return nbToursEnPrison;
+	}
+
+	public void setNbToursEnPrison(int nbToursEnPrison) {
+		this.nbToursEnPrison = nbToursEnPrison;
+	}
+	
+	public CasePrison(int i) {
+		this.index = i;
+		this.nbToursEnPrison = 3;
+	}
+
+	/**
+	public CasePrison(int i, int nbreTours) {
 		this.index = i;
 		this.joueur = null;
+		this.nbToursEnPrison = nbreTours;
 	}
-	
-	public CaseAscenseur(int i, Joueur joueur) {
-		this.index = i;
-		this.joueur = joueur;
-	}
+	*/
 
 	@Override
 	public boolean peuxPartir() {
-		return true;
+		if(this.getNbToursEnPrison() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
-	
 
 	@Override
 	public int getIndex() {
@@ -36,18 +44,8 @@ public class CaseAscenseur implements Case {
 
 	@Override
 	public int mouvements(int lancerDe) {
-		if(this.joueur != null) {
-			int indexDeux = 0;
-			System.out.println("* Le joueur " + this.getJoueur() + " est entré dans un ascenseur !");
-			if(this.getIndex() == 8) { indexDeux = 16;}
-			if(this.getIndex() == 16) { indexDeux = 8;}
-			if(this.getIndex() == 45) { indexDeux = 62;}
-			if(this.getIndex() == 62) { indexDeux = 45;}
-			System.out.println("* L'ascenseur l'a emmené jusqu'à la case " + indexDeux);
-			return indexDeux;
-		} else {
-			return this.getIndex();
-		}
+		System.out.println("* Le joueur " + this.getJoueur() + " a atteint une case prison !");
+		return this.getIndex();
 	}
 
 	@Override
@@ -69,7 +67,7 @@ public class CaseAscenseur implements Case {
 			joueur.setCaseActuelle(remplacer);
 		}
 	}
-
+	
 	@Override
 	public Joueur getJoueur() {
 		return this.joueur;
@@ -81,12 +79,16 @@ public class CaseAscenseur implements Case {
 	}
 
 	@Override
+	/**
+	 * Method used to deplement the number of turns the player has to wait while in this case
+	 */
 	public void passeUnTour() {
+		System.out.println("* Le joueur " + this.getJoueur() + " doit encore attendre : "+ this.getNbToursEnPrison() + 
+		" tours avant de pourvoir relancer le dé");
+		this.setNbToursEnPrison(this.getNbToursEnPrison() - 1);
 	}
 	
 	public void retirerJoueur() {
 		this.joueur = null;
 	}
-	
-
 }

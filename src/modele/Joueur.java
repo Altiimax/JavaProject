@@ -1,6 +1,6 @@
-package projet;
+package modele;
 
-import projet.Case;
+import modele.Case;
 /**
  * @author celia, kevin, arnaud
  * groupe 15, 2TL2

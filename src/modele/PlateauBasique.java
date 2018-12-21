@@ -1,4 +1,4 @@
-package projet;
+package modele;
 /**
  * this class store all the special power of the cells
  */

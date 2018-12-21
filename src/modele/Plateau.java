@@ -1,11 +1,11 @@
-package projet;
+package modele;
 /**
  * @author kevin
  * groupe 15, 2TL2
  *
  */
 
-import projet.Case;
+import modele.Case;
 
 /**
  * Class representing the board of the game.
